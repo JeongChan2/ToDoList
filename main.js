@@ -13,8 +13,12 @@ let taskList = []
 addButton.addEventListener("click",addTask)
 
 function addTask() {
-    let taskContent = taskInput.value;
-    taskList.push(taskContent);
+    let task = {
+        id: randomIDGenerate(),
+        taskContent: taskInput.value,
+        isComplete: false
+    };
+    taskList.push(task);
     render();
 }
 
@@ -22,16 +26,50 @@ function render(){
     let resultHTML = '';
 
     for(let i=0;i<taskList.length; i++) {
-        resultHTML += `<div class="task">
-                    <div>${taskList[i]}</div>
+        if (taskList[i].isComplete){
+            resultHTML += `<div class="task">
+                    <div class="task-content task-done background-gray">${taskList[i].taskContent}</div>
                     <div>
-                        <button>Check</button>
-                        <button>Delete</button>
+                        <button class="check-button color-gray" onclick="toggleComplete('${taskList[i].id}')"><i class="fa-solid fa-rotate-left"></i></button>
+                        <button class="delete-button color-red" onclick="toggleDelete('${taskList[i].id}')"><i class="fa-solid fa-trash-can"></i></button>
                     </div>
                 </div>`
+        }
+        else{
+            resultHTML += `<div class="task">
+                    <div class="task-content">${taskList[i].taskContent}</div>
+                    <div>
+                        <button class="check-button color-green" onclick="toggleComplete('${taskList[i].id}')"><i class="fa-solid fa-check"></i></button>
+                        <button class="delete-button color-red" onclick="toggleDelete('${taskList[i].id}')"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                </div>`
+        }
+        
 
     }
 
     document.getElementById('task-board').innerHTML = resultHTML;
 
+}
+
+function randomIDGenerate() {
+    return Math.random().toString(36).substring(2, 16);
+}
+
+function toggleComplete(id) {
+    for(let i=0; i<taskList.length; i++) {
+        if (taskList[i].id == id) {
+            taskList[i].isComplete = !taskList[i].isComplete;
+        }
+    }
+    render();
+}
+
+function toggleDelete(id) {
+    for(let i=0; i<taskList.length; i++) {
+        if (taskList[i].id == id) {
+            taskList.splice(i,1);
+        }
+    }
+    render();
 }

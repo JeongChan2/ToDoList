@@ -50,5 +50,42 @@ body {
 .task {
     display: flex;
     justify-content: space-between;
-    padding: 0.5em;
+    
+}
+
+.task-done {
+    text-decoration: line-through;
+    flex: 1;
+}
+
+.task-content {
+    padding: 10px;
+}
+
+.check-button {
+    border: none;
+    background-color: white;
+    margin: 10px;
+}
+
+.delete-button {
+    border: none;
+    background-color: white;
+    margin: 10px;
+}
+
+.color-red {
+    color: red;
+}
+
+.color-green {
+    color: green;
+}
+
+.color-gray {
+    color: gray;
+}
+
+.background-gray {
+    background-color: lightgray;
 }
