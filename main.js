@@ -29,7 +29,7 @@ function render(){
         if (taskList[i].isComplete){
             resultHTML += `<div class="task">
                     <div class="task-content task-done background-gray">${taskList[i].taskContent}</div>
-                    <div>
+                    <div class="button-flex">
                         <button class="check-button color-gray" onclick="toggleComplete('${taskList[i].id}')"><i class="fa-solid fa-rotate-left"></i></button>
                         <button class="delete-button color-red" onclick="toggleDelete('${taskList[i].id}')"><i class="fa-solid fa-trash-can"></i></button>
                     </div>
@@ -38,7 +38,7 @@ function render(){
         else{
             resultHTML += `<div class="task">
                     <div class="task-content">${taskList[i].taskContent}</div>
-                    <div>
+                    <div class="button-flex">
                         <button class="check-button color-green" onclick="toggleComplete('${taskList[i].id}')"><i class="fa-solid fa-check"></i></button>
                         <button class="delete-button color-red" onclick="toggleDelete('${taskList[i].id}')"><i class="fa-solid fa-trash-can"></i></button>
                     </div>

@@ -31,6 +31,8 @@ body {
     display: flex;
     border-bottom: 1px solid lightblue;
     position: relative;
+    cursor: pointer;
+    padding: 0.5em;
 }
 
 .task-tabs div {
@@ -43,35 +45,57 @@ body {
     position: absolute;
     width: 80px;
     left: 0px;
-    top: 52px;
+    top: 68px;
     padding: 0px;
 }
 
 .task {
     display: flex;
     justify-content: space-between;
-    
+    border-bottom: 1px solid lightgray;
 }
 
 .task-done {
     text-decoration: line-through;
-    flex: 1;
 }
 
 .task-content {
-    padding: 10px;
+    padding: 1em;
+    flex: 1;
+}
+
+.button-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .check-button {
+    height: 100%;
+    width: 5em;
     border: none;
     background-color: white;
-    margin: 10px;
+    transition: background-color 0.5s ease;
+    flex: 1;
+}
+
+.check-button:hover {
+    background-color: lightgreen;
+    transition: background-color 0.5s ease;
 }
 
 .delete-button {
+    width: 5em;
+    height: 100%;
     border: none;
     background-color: white;
-    margin: 10px;
+    transition: background-color 0.5s ease;
+    flex: 1;
+}
+
+.delete-button:hover {
+    background-color: lightcoral;
+    transition: background-color 0.5s ease;
 }
 
 .color-red {
