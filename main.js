@@ -9,6 +9,8 @@
 let taskInput = document.getElementById("task-input");
 let addButton = document.getElementById("add-button");
 let taskList = []
+let taskListIng = []
+let taskListDone = []
 
 addButton.addEventListener("click",addTask)
 
@@ -19,6 +21,7 @@ function addTask() {
         isComplete: false
     };
     taskList.push(task);
+    taskListIng.push(task);
     render();
 }
 
@@ -60,6 +63,13 @@ function toggleComplete(id) {
     for(let i=0; i<taskList.length; i++) {
         if (taskList[i].id == id) {
             taskList[i].isComplete = !taskList[i].isComplete;
+            if(taskList[i].isComplete){
+                taskListDone.push(taskList[i]);
+                taskListIng.splice(i,1);
+            } else {
+                taskListIng.push(taskList[i]);
+                taskListDone.splice(i,1);
+            }
         }
     }
     render();
