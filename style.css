@@ -6,15 +6,30 @@ body {
 }
 
 .container {
-    background-color: white;
     height: 100vh;
+    background-image: url("images/noteback.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: relative;
+    padding: 0 12vw;
 }
 
-.task-input {
+.input-area {
+    margin-top: 20vh;
+    
+}
+
+.input-area span {
+    margin-left: 10px;
+}
+
+#task-input {
     width: 80%;
     border: 1px solid lightgray;
     border-radius: 5px;
+    background-color: transparent;
 }
 
 .input-button {
@@ -25,18 +40,46 @@ body {
 
 .task-area {
     border: 1px solid lightgray;
+    height: 50%;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #e9ceb7 transparent;
 }
 
 .task-tabs {
     display: flex;
-    border-bottom: 1px solid lightblue;
+    border: 1px solid lightgray;
     position: relative;
     cursor: pointer;
     padding: 0.5em;
+    flex: 1;
 }
 
 .task-tabs div {
     padding: 1em;
+}
+
+.tab-area {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkbox-control {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkbox-control div {
+    display: flex;
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+    height: 100%;
+    width: 5em;
+    background-color: transparent;
+    transition: 0.5s;
+    flex: 1;
+    cursor: pointer;
 }
 
 #under-line {
@@ -47,9 +90,11 @@ body {
     left: 0px;
     top: 68px;
     padding: 0px;
+    transition: 1s;
 }
 
 .task {
+    position: relative;
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid lightgray;
@@ -60,7 +105,10 @@ body {
 }
 
 .task-content {
-    padding: 1em;
+    padding-top: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+    padding-left: 1.5em;
     flex: 1;
 }
 
@@ -74,28 +122,28 @@ body {
     height: 100%;
     width: 5em;
     border: none;
-    background-color: white;
-    transition: background-color 0.5s ease;
+    background-color: transparent;
+    transition: 0.5s;
     flex: 1;
 }
 
 .check-button:hover {
     background-color: lightgreen;
-    transition: background-color 0.5s ease;
+    transition: 0.5s;
 }
 
 .delete-button {
     width: 5em;
     height: 100%;
     border: none;
-    background-color: white;
-    transition: background-color 0.5s ease;
+    background-color: transparent;
+    transition: 0.5s;
     flex: 1;
 }
 
 .delete-button:hover {
     background-color: lightcoral;
-    transition: background-color 0.5s ease;
+    transition: 0.5s;
 }
 
 .color-red {
@@ -112,4 +160,27 @@ body {
 
 .background-gray {
     background-color: lightgray;
+}
+
+.checkbox-button {
+    position: absolute;
+    top: 50%; /* 부모 요소에서 세로 중앙으로 이동 */
+    left: 0.5em;
+    transform: translate(-50%, -50%); /* 요소의 너비와 높이의 절반만큼 왼쪽과 위로 이동하여 정확한 중앙 정렬 */
+}
+
+.checkbox-control-button {
+    transition: 0.5s;
+}
+
+.checkbox-control-button:hover {
+    transition: 0.5s;
+}
+
+#checkbox-ing:hover {
+    background-color: lightgreen;
+}
+
+#checkbox-delete:hover {
+    background-color: lightcoral;
 }
